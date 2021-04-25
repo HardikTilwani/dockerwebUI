@@ -2,13 +2,13 @@
 ## Creating Web user interface to manage docker - used HTML, CSS, Javascript, Flask and Ansible
 
 ![](docker0.png)
-
+Images,
 ![](docker1.png)
-
+Containers,
 ![](docker2.png)
-
+Dockerfile
 ![](docker3.png)
-
+Run commands,
 ![](docker4.png)
 
 ### Watch the video,
