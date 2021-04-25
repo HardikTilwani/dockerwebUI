@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>MyDocker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        iframe {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            background-color: black;
+            color: white;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            margin-bottom: 50px;
+        }
+        input {
+            background-color: black;
+            color: white;
+            width: 550px;
+            height: 35px;
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font" style="top: 0;position: fixed;width: 100%;background-color: white;">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="index.html"><img id="icon" height="40" width="40"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTJSp-P6efwsvzMuv_rHcRugaZcIxzgh7x7A&usqp=CAU" /></a>
+                <span class="ml-3 text-xl">Docker Assistant</span>
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="Image.html" id="nav" class="mr-5 hover:text-gray-900">Image</a>
+        <a href="Container.html" id="nav" class="mr-5 hover:text-gray-900">Container</a>
+        <a href="myDockerFile.html" id="nav" class="mr-5 hover:text-gray-900">DockerFile</a>
+        <a href="RunCommand.html" id="nav" class="mr-5 hover:text-gray-900">RunCommand</a>
+            </nav>
+            <a href="InstallDocker.html"><button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Install
+                Docker</button></a>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        <hr>
+        <hr>
+    </header>
+    <img height="300" width="300" style="margin: 100px 0 20px 600px" src="https://visualpharm.com/assets/365/Command%20Line-595b40b65ba036ed117d3e46.svg"/>    
+    <form action="cmd" target="myIframe" method="POST">
+        <input placeholder="Enter command" type="text" name="cmd" spellcheck="false" required />
+        <button class='submit' style="font-size: 17px; font-weight: bold;">RUN</button>
+    </form>
+    <h3 style="margin-top: 100px;">Output Display</h3>
+    <iframe name="myIframe" id="myIframe"></iframe>
+    <script>
+        var iframe = document.getElementById("myIframe");
+        // Adjusting the iframe height onload event
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>

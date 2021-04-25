@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+          - name: Installing docker
+            yum:
+                name: docker
+                state: present
+                skip_broken: yes
+          - name: Start docker service
+            service:
+                name: docker
+                state: started
+                enabled: yes      

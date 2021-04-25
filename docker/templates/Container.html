@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>MyDocker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='page.css') }}" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#flip1").click(function () {
+                $("#panel1").slideToggle("slow");
+            });
+            $("#flip2").click(function () {
+                $("#panel2").slideToggle("slow");
+            });
+            $("#flip3").click(function () {
+                $("#panel3").slideToggle("slow");
+            });
+            $("#flip4").click(function () {
+                $("#panel4").slideToggle("slow");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font" style="top: 0;position: fixed;width: 100%;background-color: white;">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="index.html"><img id="icon" height="40" width="40"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTJSp-P6efwsvzMuv_rHcRugaZcIxzgh7x7A&usqp=CAU" /></a>
+                <span class="ml-3 text-xl">Docker Assistant</span>
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="Image.html" id="nav" class="mr-5 hover:text-gray-900">Image</a>
+        <a href="Container.html" id="nav" class="mr-5 hover:text-gray-900">Container</a>
+        <a href="myDockerFile.html" id="nav" class="mr-5 hover:text-gray-900">DockerFile</a>
+        <a href="RunCommand.html" id="nav" class="mr-5 hover:text-gray-900">RunCommand</a>
+            </nav>
+            <a href="InstallDocker.html"><button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Install
+                Docker</button></a>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        <hr>
+        <hr>
+    </header>
+    <div class="flip" id="flip1" style="margin-top: 100px;">Launch Container</div>
+    <div class="panel" id="panel1">
+        <form action="launchcontainer" target="myIframe" method="POST">
+            <input placeholder="Enter a name for container" type="text" name="cname" spellcheck="false" required /><br>
+            <input placeholder="Enter image name" type="text" name="imagename" spellcheck="false" required /><br>
+            <button class='submit'>Submit</button>
+        </form>
+    </div>
+    <div  class="flip" id="flip2">Start Container</div>
+    <div class="panel" id="panel2">
+        <form action="startcontainer" target="myIframe" method="POST">
+            <input placeholder="Enter container name" type="text" name="cname" spellcheck="false" required /><br>
+            <button class='submit'>Start</button>
+        </form>
+    </div>
+    <div  class="flip" id="flip3">Stop Container</div>
+    <div class="panel" id="panel3">
+        <form action="stopcontainer" target="myIframe" method="POST">
+            <input placeholder="Enter container name" type="text" name="cname" spellcheck="false" required /><br>
+            <button class='submit' >Stop</button>
+        </form>
+    </div>
+    <div  class="flip" id="flip4">Remove Container</div>
+    <div class="panel" id="panel4">
+        <form action="removecontainer" target="myIframe" method="POST">
+            <input placeholder="Enter container name" type="text" name="cname" spellcheck="false" required /><br>
+            <button class='submit' >Stop</button>
+        </form>
+    </div>
+    <form action="allcontainers" target="myIframe">
+        <button class='submit'  style="margin-top: 100px;font-size: 30px;height: 45px;">Show All Containers</button>
+    </form>
+    <h3 style="margin-top: 100px;">Output Display</h3>
+    <iframe name="myIframe" id="myIframe"></iframe>
+    <script>
+        var iframe = document.getElementById("myIframe");
+        // Adjusting the iframe height onload event
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>

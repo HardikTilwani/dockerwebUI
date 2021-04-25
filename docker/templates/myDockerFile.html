@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>MyDocker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename='page.css') }}" rel="stylesheet">
+    <style>
+        #sample {
+            text-align: left;
+            width: 600px;
+            background-color: cornsilk;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+        textarea {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border: 0;
+            padding: 10px;
+            background: white no-repeat;
+            background-image: linear-gradient(to bottom, rgb(7, 80, 153), rgb(7, 80, 153)), linear-gradient(to bottom, silver, silver);
+            background-size: 0 2px, 100% 1px;
+            background-position: 50% 100%, 50% 100%;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            resize: inherit;
+            transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1vw;
+            height: 200px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        input {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-gray-600 body-font" style="top: 0;position: fixed;width: 100%;background-color: white;">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="index.html"><img id="icon" height="40" width="40"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTJSp-P6efwsvzMuv_rHcRugaZcIxzgh7x7A&usqp=CAU" /></a>
+                <span class="ml-3 text-xl">Docker Assistant</span>
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="Image.html" id="nav" class="mr-5 hover:text-gray-900">Image</a>
+        <a href="Container.html" id="nav" class="mr-5 hover:text-gray-900">Container</a>
+        <a href="myDockerFile.html" id="nav" class="mr-5 hover:text-gray-900">DockerFile</a>
+        <a href="RunCommand.html" id="nav" class="mr-5 hover:text-gray-900">RunCommand</a>
+            </nav>
+            <a href="InstallDocker.html"><button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Install
+                Docker</button></a>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        <hr>
+        <hr>
+    </header>
+    <h2 style="margin-top: 100px;"><b>Write a DockerFile</b></h2>
+    <div id="sample">
+    <h3>Sample...</h3> 
+    <pre>
+FROM centos        
+RUN mkdir /root/newdir
+COPY file.txt /root
+RUN yum install git -y
+    </pre> 
+    <a style="color: dodgerblue; cursor: pointer;" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Docker docs for writing DockerFile</a>  
+    </div>
+    <form action="dockerfile" target="myIframe" method="POST">
+        <textarea style="margin-top: 40px;" type="text" name="layers" spellcheck="false"></textarea>
+        <input placeholder="Enter image name" type="text" name="iname" spellcheck="false" required/>
+        <br><button class='submit' style="font-size: 17px; font-weight: bold;">Build</button>
+    </form>
+    <h3 style="margin-top: 100px;">Output Display</h3>
+    <iframe name="myIframe" id="myIframe"></iframe>
+    <script>
+        var iframe = document.getElementById("myIframe");
+        // Adjusting the iframe height onload event
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+#nav:hover,
+        #icon:hover {
+            cursor: pointer;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        .flip {
+            width: 50%;
+            color: white;
+            color: rgb(30, 68, 117);
+            font-size: 30px;
+            text-align: center;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            padding: 10px 0 0 0;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: blanchedalmond;
+        }
+
+        .panel {
+            width: 50%;
+            font-size: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            margin-top: 5px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            border: 0;
+            padding: 10px 5px;
+            background: white no-repeat;
+            background-image: linear-gradient(to bottom, rgb(7, 80, 153), rgb(7, 80, 153)), linear-gradient(to bottom, silver, silver);
+            background-size: 0 2px, 100% 1px;
+            background-position: 50% 100%, 50% 100%;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0.3vw;
+            resize: inherit;
+            transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1vw;
+        }
+
+        input:focus {
+            background-size: 100% 2px, 100% 1px;
+            outline: none;
+        }
+
+        .submit {
+            text-align: center;
+            font-size: 15px;
+            color: rgb(30, 68, 117);
+            height: 30px;
+            width: fit-content;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            border: none;
+            padding: 5px;
+        }
+
+        .submit:hover {
+            background-color: rgb(207, 205, 205);
+        }
+
+        iframe {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            background-color: black;
+            color: white;
+            box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
+            padding: 5px;
+            margin-bottom: 50px;
+        }
+
+        #nav:hover,
+        #icon:hover {
+            cursor: pointer;
+        }
